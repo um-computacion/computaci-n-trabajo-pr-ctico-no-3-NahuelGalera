@@ -1,8 +1,8 @@
 import unittest
 from src.exceptions import (
     ingrese_numero,
-    NumeroDebeSerPositivo,
-)
+    NumeroDebeSerPositivo)
+
 from unittest.mock import patch
 
 class TestCalculoNumeros(unittest.TestCase):
