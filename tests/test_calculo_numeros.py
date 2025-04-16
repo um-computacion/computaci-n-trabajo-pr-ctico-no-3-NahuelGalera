@@ -1,7 +1,5 @@
 import unittest
-from src.exceptions import (
-    ingrese_numero,
-    NumeroDebeSerPositivo)
+from src.exceptions import (ingrese_numero, NumeroDebeSerPositivo)
 
 from unittest.mock import patch
 
@@ -39,5 +37,13 @@ class TestCalculoNumeros(unittest.TestCase):
         with self.assertRaises(ValueError):
             ingrese_numero()
 
+    @patch(  # este patch controla lo que hace el input
+        'builtins.input',
+        return_value='texto_no_numerico'
+    )
+    def test_ingreso_texto_no_numerico(self, patch_input):
+        with self.assertRaises(ValueError):
+            ingrese_numero()
+
 if __name__ == '__main__':
-    unittest.main() 
+    unittest.main()
